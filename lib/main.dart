@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+import 'package:note/controller/note_list_controller.dart';
+import 'package:note/page/note_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(NoteListController());
     return GetMaterialApp(
-      title: 'Note',
+      title: 'Simple Note',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      home: const NoteListPage(),
     );
   }
 }
