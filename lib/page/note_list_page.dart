@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note/controller/note_list_controller.dart';
+import 'package:note/dialog/details_note_dialog.dart';
+import 'package:note/dialog/edit_note_dialog.dart';
 import 'package:note/widget/note_item_widget.dart';
 
 class NoteListPage extends StatelessWidget {
@@ -25,12 +27,12 @@ class NoteListPage extends StatelessWidget {
                 itemBuilder: (context, i) {
                   return NoteItemWidget(
                     ct.list[i],
-                    onTap: () {},
+                    onTap: () => DetailsNoteDialog.show(i),
                   );
                 }),
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          child: const Icon(Icons.add),
+        floatingActionButton: const FloatingActionButton(
+          onPressed: EditNoteDialog.edit,
+          child: Icon(Icons.add),
         ),
       );
     });
