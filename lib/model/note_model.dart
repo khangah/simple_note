@@ -2,6 +2,10 @@ List<NoteModel> noteListFromJsonList(Map<String, dynamic> json) {
   return List<NoteModel>.from(json["list"].map((x) => NoteModel.fromJson(x)));
 }
 
+Map<String, dynamic> noteListToJson(List<NoteModel> list) {
+  return {"list": List<dynamic>.from(list.map((x) => x.toJson()))};
+}
+
 class NoteModel {
   NoteModel({
     required this.text,
