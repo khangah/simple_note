@@ -18,9 +18,11 @@ class NoteListController extends GetxController {
     update();
   }
 
-  void add(String text) {
+  void add(String text) async  {
     final nowTime = DateTime.now().millisecondsSinceEpoch;
     list.add(NoteModel(text: text, createTime: nowTime, editTime: nowTime));
+    /// this delay just for fun
+    await Future.delayed(const Duration(milliseconds: 300));
     update();
   }
 
